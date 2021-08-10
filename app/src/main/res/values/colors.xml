@@ -3,5 +3,5 @@
     <color name="primary_color">#183883</color>
     <color name="primary_dark">#0E2049</color>
     <color name="secondary_color">#FFFFFF</color>
-    <color name="secondary_dark">#000000</color>
+    <color name="secondary_dark">#FFFFFF</color>
 </resources>

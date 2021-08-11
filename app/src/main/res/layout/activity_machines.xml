@@ -8,6 +8,7 @@
     tools:context=".MachinesActivity">
 
     <RelativeLayout
+        android:id="@+id/headMachinesAct"
         android:layout_width="match_parent"
         android:layout_height="112dp"
         android:background="@drawable/top_rect">
@@ -55,5 +56,11 @@
             android:textCursorDrawable="@drawable/cursor_edt_txt" />
 
     </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/machinesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headMachinesAct"/>
 
 </RelativeLayout>

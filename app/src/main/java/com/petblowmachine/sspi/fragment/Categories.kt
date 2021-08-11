@@ -18,12 +18,6 @@ class Categories : Fragment() {
     private lateinit var arrayList: ArrayList<String>
     private lateinit var adapter:CategoryAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        println("hello")
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,7 +38,7 @@ class Categories : Fragment() {
             arrayList.add("Category 8")
             arrayList.add("Category 9")
             arrayList.add("Category 10")
-            adapter = CategoryAdapter(arrayList)
+            adapter = CategoryAdapter(arrayList,activity as Context)
             recyclerView.adapter = adapter
         }
         else{

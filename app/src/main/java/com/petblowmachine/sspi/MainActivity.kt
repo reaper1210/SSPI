@@ -1,10 +1,8 @@
 package com.petblowmachine.sspi
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -13,6 +11,7 @@ import com.petblowmachine.sspi.fragment.Profile
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.EditText
+import com.petblowmachine.sspi.adapter.ViewPagerAdapter
 
 class MainActivity : AppCompatActivity() {
     lateinit var viewpager:ViewPager2

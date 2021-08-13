@@ -29,7 +29,7 @@ class Categories : Fragment() {
             recyclerView.layoutManager = gridLayoutManager
             arrayList = ArrayList()
             arrayList.add("Category 1")
-            arrayList.add("Category 2")
+            arrayList.add("2")
             arrayList.add("Category 3")
             arrayList.add("Category 4")
             arrayList.add("Category 5")

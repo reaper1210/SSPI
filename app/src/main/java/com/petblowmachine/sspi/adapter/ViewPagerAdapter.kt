@@ -1,4 +1,4 @@
-package com.petblowmachine.sspi
+package com.petblowmachine.sspi.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

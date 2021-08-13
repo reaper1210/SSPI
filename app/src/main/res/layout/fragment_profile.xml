@@ -1,8 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.Profile">
+    android:layout_height="match_parent">
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+        <RelativeLayout
+            android:id="@+id/headerLayoutProfileInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgSSPILogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/sspi_logo" />
+
+            <TextView
+                android:id="@+id/txtProfileInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgSSPILogo"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="20dp"
+                android:text="We, Swami Samarth Pet Industries from 2006 are manufacturing a high-quality range of Water Plant and Packaging Machines. Offered products range consists of Rinsing Filling Capping Machine, Plastic Pet Bottle Making Machine, and Packaged Drinking Water Plant. In their development process, we assure that only top-notch basic material and latest technology is used by our professionals along with ultra-modern machinery. The provided products are appreciated for their sturdy construction, easy to use and less maintenance."
+                android:textAlignment="center"
+                android:textColor="@color/primary_dark"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardViewFactSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="20dp"
+            android:layout_below="@+id/headerLayoutProfileInfo"
+            app:strokeColor="@color/primary_dark"
+            app:strokeWidth="1dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/profileFactSheetTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    android:text="Company Factsheet"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <com.skyhope.expandcollapsecardview.ExpandCollapseCard
+                    android:id="@+id/cardView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/profileFactSheetTitle"
+                    android:layout_margin="10dp"
+                    android:background="@color/primary_dark"
+                    app:item_inner_view="@layout/profile_cardview1_layout"
+                    app:title="Basic Information"
+                    app:title_color="@color/primary_dark"
+                    app:title_size="18sp" />
+
+                <com.skyhope.expandcollapsecardview.ExpandCollapseCard
+                    android:id="@+id/cardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/cardView1"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    app:item_inner_view="@layout/profile_cardview2_layout"
+                    app:title="Infrastructure"
+                    app:title_size="18sp"
+                    app:title_color="@color/primary_dark"/>
+
+                <com.skyhope.expandcollapsecardview.ExpandCollapseCard
+                    android:id="@+id/cardView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/cardView2"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:clickable="true"
+                    app:item_inner_view="@layout/profile_cardview3_layout"
+                    app:title="Company USP"
+                    app:title_color="@color/primary_dark"
+                    app:title_size="18sp" />
+
+                <com.skyhope.expandcollapsecardview.ExpandCollapseCard
+                    android:id="@+id/cardView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/cardView3"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:clickable="true"
+                    app:item_inner_view="@layout/profile_cardview4_layout"
+                    app:title="Statutory Profile"
+                    app:title_color="@color/primary_dark"
+                    app:title_size="18sp" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <ImageView
+            android:id="@+id/btnContactUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_contact_us"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/cardViewFactSheet"
+            android:layout_marginBottom="20dp"/>
+    </RelativeLayout>
+
+</ScrollView>

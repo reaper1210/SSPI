@@ -7,11 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.petblowmachine.sspi.MachinesActivity
 import com.petblowmachine.sspi.R
 
-class CategoryAdapter(val arrayList:ArrayList<String>, val context: Context):
+class CategoryAdapter(private val arrayList:ArrayList<String>, private val context: Context):
     RecyclerView.Adapter<CategoryAdapter.ItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
@@ -26,6 +27,14 @@ class CategoryAdapter(val arrayList:ArrayList<String>, val context: Context):
             context.startActivity(intent)
         }
         holder.categoryName.text = categoryName
+        holder.categoryName.setOnClickListener {
+            val intent = Intent(context,MachinesActivity::class.java)
+            startActivity(context,intent,null)
+        }
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context,MachinesActivity::class.java)
+            startActivity(context,intent,null)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -33,8 +42,8 @@ class CategoryAdapter(val arrayList:ArrayList<String>, val context: Context):
     }
 
     class ItemHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-        var categoryImg = itemView.findViewById<ImageView>(R.id.imgCategory)
-        var categoryName = itemView.findViewById<TextView>(R.id.txtCategoryName)
-        var button = itemView.findViewById<ImageView>(R.id.btnViewAll)
+        var categoryImg:ImageView = itemView.findViewById(R.id.imgCategory)
+        var categoryName: TextView = itemView.findViewById(R.id.txtCategoryName)
+        var button:ImageView = itemView.findViewById(R.id.btnViewAll)
     }
 }

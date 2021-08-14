@@ -1,4 +1,4 @@
-package com.petblowmachine.sspi
+package com.petblowmachine.sspi.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,12 +6,13 @@ import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.petblowmachine.sspi.R
 import com.petblowmachine.sspi.adapter.MachineAdapter
 
 class MachinesActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var gridLayout: LinearLayoutManager
+    private lateinit var linearLayout: LinearLayoutManager
     private lateinit var machinesAdapter: MachineAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +20,7 @@ class MachinesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_machines)
 
         recyclerView = findViewById(R.id.machinesRecyclerView)
-        gridLayout = LinearLayoutManager(this)
+        linearLayout = LinearLayoutManager(this)
 
         val arrList = ArrayList<String>()
         arrList.add("Automatic Blowing")
@@ -33,8 +34,8 @@ class MachinesActivity : AppCompatActivity() {
         arrList.add("Fully Automatic PET")
         arrList.add("Semi Auto Dropping")
 
-        machinesAdapter = MachineAdapter(arrList,this)
-        recyclerView.layoutManager = gridLayout
+        machinesAdapter = MachineAdapter(this, arrList)
+        recyclerView.layoutManager = linearLayout
         recyclerView.adapter = machinesAdapter
 
     }

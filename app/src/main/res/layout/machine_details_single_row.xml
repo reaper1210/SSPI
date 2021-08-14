@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true">
+
+    <TextView
+        android:id="@+id/machineDetailsSingleRowType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brand:"
+        android:textColor="@color/secondary_dark"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/machineDetailsSingleRowInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="Swami Samarth Pet"
+        android:textColor="@color/secondary_dark"
+        android:textSize="20sp"
+        android:layout_toEndOf="@id/machineDetailsSingleRowType"/>
+
+</RelativeLayout>

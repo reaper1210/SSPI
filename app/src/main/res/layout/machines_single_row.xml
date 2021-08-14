@@ -48,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginHorizontal="12dp"
             android:layout_toEndOf="@id/singleRowMachineImageCardView"
             android:layout_alignTop="@+id/singleRowMachineImageCardView"
             android:layout_alignBottom="@+id/singleRowMachineImageCardView"

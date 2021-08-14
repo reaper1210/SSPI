@@ -1,4 +1,4 @@
-package com.petblowmachine.sspi
+package com.petblowmachine.sspi.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +11,7 @@ import com.petblowmachine.sspi.fragment.Profile
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.EditText
+import com.petblowmachine.sspi.R
 import com.petblowmachine.sspi.adapter.ViewPagerAdapter
 
 class MainActivity : AppCompatActivity() {

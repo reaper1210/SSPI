@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.petblowmachine.sspi.MachinesActivity
+import com.petblowmachine.sspi.activities.MachinesActivity
 import com.petblowmachine.sspi.R
 
 class CategoryAdapter(private val arrayList:ArrayList<String>, private val context: Context):
@@ -23,16 +23,16 @@ class CategoryAdapter(private val arrayList:ArrayList<String>, private val conte
     override fun onBindViewHolder(holder:ItemHolder, position: Int) {
         val categoryName = arrayList[position]
         holder.button.setOnClickListener {
-            val intent = Intent(context,MachinesActivity::class.java)
+            val intent = Intent(context, MachinesActivity::class.java)
             context.startActivity(intent)
         }
         holder.categoryName.text = categoryName
         holder.categoryName.setOnClickListener {
-            val intent = Intent(context,MachinesActivity::class.java)
+            val intent = Intent(context, MachinesActivity::class.java)
             startActivity(context,intent,null)
         }
         holder.itemView.setOnClickListener {
-            val intent = Intent(context,MachinesActivity::class.java)
+            val intent = Intent(context, MachinesActivity::class.java)
             startActivity(context,intent,null)
         }
     }

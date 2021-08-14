@@ -1,22 +1,25 @@
 package com.petblowmachine.sspi.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.card.MaterialCardView
 import com.petblowmachine.sspi.R
+import com.petblowmachine.sspi.activities.MachineDetailsActivity
 
-class MachineAdapter(private val itemList: ArrayList<String>, private val context: Context): RecyclerView.Adapter<MachineAdapter.ViewHolder>() {
+class MachineAdapter(private val context: Context, private val itemList: ArrayList<String>): RecyclerView.Adapter<MachineAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val machineName = view.findViewById<TextView>(R.id.txtSingleRowMachineName)
-        val machineImg = view.findViewById<ImageView>(R.id.imgSingleRowMachineImage)
-        val detailOne = view.findViewById<TextView>(R.id.txtSingleRowMachineDetailOne)
-        val detailTwo = view.findViewById<TextView>(R.id.txtSingleRowMachineDetailTwo)
-        val detailThree = view.findViewById<TextView>(R.id.txtSingleRowMachineDetailThree)
+        val machineName: TextView = view.findViewById(R.id.txtSingleRowMachineName)
+        val machineImg: ImageView = view.findViewById(R.id.imgSingleRowMachineImage)
+        val detailOne: TextView = view.findViewById(R.id.txtSingleRowMachineDetailOne)
+        val detailTwo: TextView = view.findViewById(R.id.txtSingleRowMachineDetailTwo)
+        val detailThree: TextView = view.findViewById(R.id.txtSingleRowMachineDetailThree)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,6 +33,10 @@ class MachineAdapter(private val itemList: ArrayList<String>, private val contex
         holder.detailOne.text = "Price: Rs.150"
         holder.detailTwo.text = "Capacity: 5400BPH"
         holder.detailThree.text = "Usage: Industrial"
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context,MachineDetailsActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

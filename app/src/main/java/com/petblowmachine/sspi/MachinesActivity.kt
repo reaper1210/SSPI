@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.petblowmachine.sspi.adapter.MachineAdapter
 
 class MachinesActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var gridLayout: GridLayoutManager
+    private lateinit var gridLayout: LinearLayoutManager
     private lateinit var machinesAdapter: MachineAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +19,7 @@ class MachinesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_machines)
 
         recyclerView = findViewById(R.id.machinesRecyclerView)
-        gridLayout = GridLayoutManager(this,2)
+        gridLayout = LinearLayoutManager(this)
 
         val arrList = ArrayList<String>()
         arrList.add("Automatic Blowing")

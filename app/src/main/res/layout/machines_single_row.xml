@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="16dp"
     app:cardElevation="8dp"
@@ -11,8 +11,8 @@
     app:strokeWidth="0.2dp">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/txtSingleRowMachineName"
@@ -47,21 +47,25 @@
             android:id="@+id/machineSingleRowDetailsLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/singleRowMachineImageCardView">
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/singleRowMachineImageCardView"
+            android:layout_alignTop="@+id/singleRowMachineImageCardView"
+            android:layout_alignBottom="@+id/singleRowMachineImageCardView"
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:id="@+id/machineSingleRowDetailOne"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
 
                 <ImageView
                     android:id="@+id/imgSingleRowMachineDetailOne"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_marginHorizontal="8dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/circle"/>
+                    android:layout_marginHorizontal="8dp"
+                    android:src="@drawable/circle" />
 
                 <TextView
                     android:id="@+id/txtSingleRowMachineDetailOne"
@@ -71,7 +75,7 @@
                     android:maxLines="1"
                     android:text="detail 1"
                     android:textColor="@color/primary_color"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
             </RelativeLayout>
 
@@ -79,15 +83,15 @@
                 android:id="@+id/machineSingleRowDetailTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/machineSingleRowDetailOne">
+                android:layout_marginTop="16dp">
 
                 <ImageView
                     android:id="@+id/imgSingleRowMachineDetailTwo"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_marginHorizontal="8dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/circle"/>
+                    android:layout_marginHorizontal="8dp"
+                    android:src="@drawable/circle" />
 
                 <TextView
                     android:id="@+id/txtSingleRowMachineDetailTwo"
@@ -97,7 +101,7 @@
                     android:maxLines="1"
                     android:text="detail 2"
                     android:textColor="@color/primary_color"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
             </RelativeLayout>
 
@@ -105,15 +109,16 @@
                 android:id="@+id/machineSingleRowDetailThree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/machineSingleRowDetailTwo">
+                android:layout_below="@id/machineSingleRowDetailTwo"
+                android:layout_marginTop="16dp">
 
                 <ImageView
                     android:id="@+id/imgSingleRowMachineDetailThree"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_marginHorizontal="8dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/circle"/>
+                    android:layout_marginHorizontal="8dp"
+                    android:src="@drawable/circle" />
 
                 <TextView
                     android:id="@+id/txtSingleRowMachineDetailThree"
@@ -123,7 +128,7 @@
                     android:maxLines="1"
                     android:text="detail 3"
                     android:textColor="@color/primary_color"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
             </RelativeLayout>
 

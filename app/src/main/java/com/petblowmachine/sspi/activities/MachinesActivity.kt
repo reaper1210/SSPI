@@ -33,12 +33,12 @@ class MachinesActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 for(document in it){
                     arrList.add(MachineInfo(document.id,document["machineImg"].toString(),
-                        document["capacity"].toString(),document["type"].toString(),document["mouldCavity"].toString()))
-                    machinesAdapter = MachineAdapter(this, arrList)
-                    recyclerView.layoutManager = linearLayout
-                    recyclerView.adapter = machinesAdapter
-
+                        document["detail1"].toString(),document["detail2"].toString(),
+                        document["detail3"].toString()))
                 }
+                machinesAdapter = MachineAdapter(this, arrList)
+                recyclerView.layoutManager = linearLayout
+                recyclerView.adapter = machinesAdapter
             }
     }
 }

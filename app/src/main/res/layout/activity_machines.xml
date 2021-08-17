@@ -59,9 +59,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/machinesRecyclerView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/headMachinesAct"/>
+        android:layout_margin="10dp"
+        android:layout_below="@id/headMachinesAct"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

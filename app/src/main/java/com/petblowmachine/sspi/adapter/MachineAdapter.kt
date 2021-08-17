@@ -11,8 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.petblowmachine.sspi.R
 import com.petblowmachine.sspi.activities.MachineDetailsActivity
+import com.petblowmachine.sspi.modal.Applic
+import com.petblowmachine.sspi.modal.MachineInfo
 
-class MachineAdapter(private val context: Context, private val itemList: ArrayList<String>): RecyclerView.Adapter<MachineAdapter.ViewHolder>() {
+class MachineAdapter(private val context: Context, private val itemList: ArrayList<MachineInfo>):
+    RecyclerView.Adapter<MachineAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val machineName: TextView = view.findViewById(R.id.txtSingleRowMachineName)
@@ -28,13 +31,15 @@ class MachineAdapter(private val context: Context, private val itemList: ArrayLi
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.machineName.text = itemList[position]
+        val currentMachine = itemList[position]
+        holder.machineName.text = currentMachine.machineName
         holder.machineImg.setImageResource(R.drawable.img1)
-        holder.detailOne.text = "Price: Rs.150"
-        holder.detailTwo.text = "Capacity: 5400BPH"
-        holder.detailThree.text = "Usage: Industrial"
+        holder.detailOne.text = currentMachine.detail1
+        holder.detailTwo.text = currentMachine.detail2
+        holder.detailThree.text = currentMachine.detail3
         holder.itemView.setOnClickListener {
             val intent = Intent(context,MachineDetailsActivity::class.java)
+            Applic.machineName = currentMachine.machineName
             context.startActivity(intent)
         }
     }

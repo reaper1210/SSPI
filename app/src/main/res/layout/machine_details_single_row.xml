@@ -3,24 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true">
+    android:layout_centerHorizontal="true"
+    android:layout_margin="2dp">
 
     <TextView
         android:id="@+id/machineDetailsSingleRowType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Brand:"
+        android:text="Key"
+        android:textStyle="bold"
         android:textColor="@color/secondary_dark"
-        android:textSize="20sp"/>
+        android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/machineDetailsSingleRowInfo"
+        android:id="@+id/machineDetailsSingleRowColon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="Swami Samarth Pet"
+        android:layout_marginHorizontal="2dp"
+        android:layout_toEndOf="@+id/machineDetailsSingleRowType"
+        android:text=":"
+        android:textStyle="bold"
         android:textColor="@color/secondary_dark"
-        android:textSize="20sp"
-        android:layout_toEndOf="@id/machineDetailsSingleRowType"/>
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/machineDetailsSingleRowDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/machineDetailsSingleRowColon"
+        android:text="Value"
+        android:textColor="@color/secondary_dark"
+        android:textSize="16sp" />
 
 </RelativeLayout>

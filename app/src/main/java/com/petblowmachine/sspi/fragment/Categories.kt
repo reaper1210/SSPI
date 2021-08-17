@@ -7,16 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 import com.petblowmachine.sspi.R
 import com.petblowmachine.sspi.adapter.CategoryAdapter
+import com.petblowmachine.sspi.modal.Category
 
 class Categories : Fragment() {
     private lateinit var recyclerView:RecyclerView
     private lateinit var gridLayoutManager: GridLayoutManager
-    private lateinit var arrayList: ArrayList<String>
+    private lateinit var arrayList: ArrayList<Category>
     private lateinit var adapter:CategoryAdapter
+    private lateinit var db: FirebaseFirestore
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,22 +30,23 @@ class Categories : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_categories, container, false)
         recyclerView = view.findViewById(R.id.categoryRecyclerView)
+        db = FirebaseFirestore.getInstance()
         if(activity!=null){
-            gridLayoutManager = GridLayoutManager(activity as Context,2)
-            recyclerView.layoutManager = gridLayoutManager
             arrayList = ArrayList()
-            arrayList.add("Category 1")
-            arrayList.add("2")
-            arrayList.add("Category 3")
-            arrayList.add("Category 4")
-            arrayList.add("Category 5")
-            arrayList.add("Category 6")
-            arrayList.add("Category 7")
-            arrayList.add("Category 8")
-            arrayList.add("Category 9")
-            arrayList.add("Category 10")
-            adapter = CategoryAdapter(arrayList,activity as Context)
-            recyclerView.adapter = adapter
+
+            db.collection("categories")
+                .get()
+                .addOnSuccessListener {
+                    for(document in it){
+                        arrayList.add(Category(document.id,document["categoryImg"].toString()))
+                    }
+                    gridLayoutManager = GridLayoutManager(activity as Context,2)
+                    recyclerView.layoutManager = gridLayoutManager
+                    adapter = CategoryAdapter(arrayList,activity as Context)
+                    recyclerView.adapter = adapter
+                }
+                .addOnFailureListener {
+                }
         }
         else{
             println("null")

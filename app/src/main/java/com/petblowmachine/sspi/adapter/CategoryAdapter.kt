@@ -11,8 +11,10 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.petblowmachine.sspi.activities.MachinesActivity
 import com.petblowmachine.sspi.R
+import com.petblowmachine.sspi.modal.Applic
+import com.petblowmachine.sspi.modal.Category
 
-class CategoryAdapter(private val arrayList:ArrayList<String>, private val context: Context):
+class CategoryAdapter(private val arrayList:ArrayList<Category>, private val context: Context):
     RecyclerView.Adapter<CategoryAdapter.ItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
@@ -21,18 +23,16 @@ class CategoryAdapter(private val arrayList:ArrayList<String>, private val conte
     }
 
     override fun onBindViewHolder(holder:ItemHolder, position: Int) {
-        val categoryName = arrayList[position]
+        val category = arrayList[position]
         holder.button.setOnClickListener {
             val intent = Intent(context, MachinesActivity::class.java)
             context.startActivity(intent)
         }
-        holder.categoryName.text = categoryName
-        holder.categoryName.setOnClickListener {
-            val intent = Intent(context, MachinesActivity::class.java)
-            startActivity(context,intent,null)
-        }
+        holder.categoryName.text = category.categoryName
+
         holder.itemView.setOnClickListener {
             val intent = Intent(context, MachinesActivity::class.java)
+            Applic.categoryName = category.categoryName
             startActivity(context,intent,null)
         }
     }

@@ -6,14 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.SnapshotMetadata
 import com.petblowmachine.sspi.R
 
-class MachineDetailsAdapter(private val context: Context, private val itemList: ArrayList<String>): RecyclerView.Adapter<MachineDetailsAdapter.ViewHolder>() {
+class MachineDetailsAdapter(private val context: Context, private val keyList: ArrayList<String>,private val valuesList:ArrayList<String>): RecyclerView.Adapter<MachineDetailsAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
 
         val txtType: TextView = view.findViewById(R.id.machineDetailsSingleRowType)
-        val txtInfo: TextView = view.findViewById(R.id.machineDetailsSingleRowInfo)
+        val txtDesc: TextView = view.findViewById(R.id.machineDetailsSingleRowDesc)
 
     }
 
@@ -23,12 +24,12 @@ class MachineDetailsAdapter(private val context: Context, private val itemList: 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.txtType.text = itemList[position]
-        holder.txtInfo.text = itemList[position]
+        holder.txtType.text = keyList[position]
+        holder.txtDesc.text = valuesList[position]
     }
 
     override fun getItemCount(): Int {
-        return itemList.size
+        return keyList.size
     }
 
 }

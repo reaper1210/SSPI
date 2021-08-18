@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.android.material.card.MaterialCardView
 import com.petblowmachine.sspi.R
 import com.petblowmachine.sspi.activities.MachineDetailsActivity
@@ -32,14 +33,15 @@ class MachineAdapter(private val context: Context, private val itemList: ArrayLi
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentMachine = itemList[position]
+        Glide.with(context).load(currentMachine.machineImg).centerCrop().into(holder.machineImg)
         holder.machineName.text = currentMachine.machineName
-        holder.machineImg.setImageResource(R.drawable.img1)
         holder.detailOne.text = currentMachine.detail1
         holder.detailTwo.text = currentMachine.detail2
         holder.detailThree.text = currentMachine.detail3
         holder.itemView.setOnClickListener {
             val intent = Intent(context,MachineDetailsActivity::class.java)
             Applic.machineName = currentMachine.machineName
+            Applic.machineImg = currentMachine.machineImg
             context.startActivity(intent)
         }
     }

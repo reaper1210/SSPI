@@ -1,11 +1,14 @@
 package com.petblowmachine.sspi.activities
 
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SnapshotMetadata
 import com.google.firestore.v1.Value
@@ -20,6 +23,7 @@ class MachineDetailsActivity : AppCompatActivity() {
     private lateinit var adapter: MachineDetailsAdapter
     private lateinit var layoutManager: LinearLayoutManager
     private lateinit var txtMachineName:TextView
+    private lateinit var imgMachineImage:ImageView
     private lateinit var db:FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,9 +33,11 @@ class MachineDetailsActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
 
         txtMachineName = findViewById(R.id.machineDetailsMachineName)
+        imgMachineImage = findViewById(R.id.machineDetailsImage)
         recyclerView = findViewById(R.id.machineDetailsRecyclerView)
 
         txtMachineName.text = Applic.machineName
+        Glide.with(this).load(Applic.machineImg).into(imgMachineImage)
 
         db.collection("categories").document(Applic.categoryName).collection("Machines")
             .document(Applic.machineName).collection("details").document("details").get()

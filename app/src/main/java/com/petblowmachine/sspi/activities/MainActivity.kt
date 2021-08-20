@@ -11,6 +11,7 @@ import com.petblowmachine.sspi.fragment.Profile
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatDelegate
 import com.petblowmachine.sspi.R
 import com.petblowmachine.sspi.adapter.ViewPagerAdapter
 
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         viewpager = findViewById(R.id.viewpager)
         searchEdtText = findViewById(R.id.searchEdtTxtMainAct)

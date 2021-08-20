@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/top_rect"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_alignParentTop="true"
         android:paddingVertical="4dp">
 
         <ImageView
@@ -37,9 +37,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
-        app:layout_constraintTop_toBottomOf="@+id/topLayoutMachineDetailsAct">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="64dp"
+        android:layout_below="@id/topLayoutMachineDetailsAct">
 
         <ScrollView
             android:id="@+id/machineDetailsScrollView"
@@ -105,23 +105,87 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/machineDetailsBottomLayout"
         android:layout_width="match_parent"
-        android:layout_height="74dp"
-        android:background="@drawable/bottom_nav"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
 
-        <android.widget.Button
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:id="@+id/machineDetailsBottomFrameLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginVertical="16dp"
-            android:background="@drawable/button_selector"
-            android:text="Request Price"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:background="@drawable/bottom_nav"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="32dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <android.widget.Button
+                    android:id="@+id/btnTopMachineDetailsRequestPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/button_selector"
+                    android:text="Request Price"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_down_arrow"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignTop="@id/btnTopMachineDetailsRequestPrice"
+                    android:layout_alignBottom="@id/btnTopMachineDetailsRequestPrice"/>
+
+                <EditText
+                    android:id="@+id/edTxtOneMachineDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:paddingHorizontal="4dp"
+                    android:hint="Name"
+                    android:textColorHint="@color/secondary_dark"
+                    android:inputType="textPersonName"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                    android:maxLines="1"
+                    android:background="@drawable/tab_selected"
+                    android:layout_below="@id/btnTopMachineDetailsRequestPrice"/>
+
+                <EditText
+                    android:id="@+id/edTxtTwoMachineDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:paddingHorizontal="4dp"
+                    android:hint="Phone Number"
+                    android:textColorHint="@color/secondary_dark"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:background="@drawable/tab_selected"
+                    android:layout_below="@id/edTxtOneMachineDetails"/>
+
+                <android.widget.Button
+                    android:id="@+id/btnRequestPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/edTxtTwoMachineDetails"
+                    android:background="@drawable/button_selector"
+                    android:text="Request Price"
+                    android:textSize="16sp"/>
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</RelativeLayout>

@@ -6,10 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".fragment.Categories">
 
+    <RelativeLayout
+        android:id="@+id/topLayoutCatFrag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_rect">
+
+        <EditText
+            android:id="@+id/searchEdtTxtCatFrag"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/search_edt_bg"
+            android:drawableEnd="@drawable/search_drawable"
+            android:hint="Categories"
+            android:paddingStart="8dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingBottom="2dp"
+            android:textColorHint="@color/primary_color"
+            android:textCursorDrawable="@drawable/cursor_edt_txt" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtNoCategories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="No Categories to show"
+        android:textSize="32sp"
+        android:textStyle="italic"
+        android:layout_centerInParent="true" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoryRecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"/>
+        android:layout_below="@+id/topLayoutCatFrag"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

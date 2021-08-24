@@ -77,7 +77,7 @@ class MachineDetailsActivity : AppCompatActivity() {
         }
 
         txtMachineName.text = Applic.machineName
-        Glide.with(this).load(Applic.machineImg).into(imgMachineImage)
+        Glide.with(this).load(Applic.machineImg).error(R.drawable.no_img).into(imgMachineImage)
 
         db.collection("categories").document(Applic.categoryName).collection("Machines")
             .document(Applic.machineName).collection("details").document("details").get()
@@ -114,6 +114,7 @@ class MachineDetailsActivity : AppCompatActivity() {
                 val requestData = hashMapOf(
                     "name" to name,
                     "phone_number" to phoneNumber,
+                    "machineName" to Applic.machineName,
                     "time" to FieldValue.serverTimestamp()
                 )
                 db.collection("admin").document("admin").collection("requests").document()
@@ -129,7 +130,7 @@ class MachineDetailsActivity : AppCompatActivity() {
                                         val notificationSender = FcmNotificationSender(
                                             adminToken,
                                             "New Price Request",
-                                            "$name has requested price for a machine",
+                                            "$name has requested price for ${Applic.machineName}",
                                             this)
                                         notificationSender.sendNotifications()
                                     }

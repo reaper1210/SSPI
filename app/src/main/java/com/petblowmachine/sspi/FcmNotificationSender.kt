@@ -9,7 +9,7 @@ import org.json.JSONObject
 import java.util.HashMap
 
 class FcmNotificationSender(
-    var userFcmToken: String?,
+    private var userFcmToken: String?,
     var title: String?,
     var body: String?,
     var mActivity: Activity?
@@ -26,7 +26,7 @@ class FcmNotificationSender(
             val notiObject = JSONObject()
             notiObject.put("title", title)
             notiObject.put("body", body)
-            notiObject.put("icon", "logo")
+            notiObject.put("icon", "sspi_logo")
             mainObj.put("notification", notiObject)
 
             val request: JsonObjectRequest = object : JsonObjectRequest(

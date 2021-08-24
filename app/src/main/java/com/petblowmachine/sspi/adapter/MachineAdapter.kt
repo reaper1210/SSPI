@@ -14,8 +14,12 @@ import com.petblowmachine.sspi.R
 import com.petblowmachine.sspi.activities.MachineDetailsActivity
 import com.petblowmachine.sspi.modal.Applic
 import com.petblowmachine.sspi.modal.MachineInfo
+import com.google.android.gms.common.data.DataHolder
 
-class MachineAdapter(private val context: Context, private val itemList: ArrayList<MachineInfo>):
+
+
+
+class MachineAdapter(private val context: Context, private var itemList: ArrayList<MachineInfo>):
     RecyclerView.Adapter<MachineAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -33,7 +37,7 @@ class MachineAdapter(private val context: Context, private val itemList: ArrayLi
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentMachine = itemList[position]
-        Glide.with(context).load(currentMachine.machineImg).centerCrop().into(holder.machineImg)
+        Glide.with(context).load(currentMachine.machineImg).centerCrop().error(R.drawable.no_img).into(holder.machineImg)
         holder.machineName.text = currentMachine.machineName
         holder.detailOne.text = currentMachine.detail1
         holder.detailTwo.text = currentMachine.detail2
@@ -48,6 +52,11 @@ class MachineAdapter(private val context: Context, private val itemList: ArrayLi
 
     override fun getItemCount(): Int {
         return itemList.size
+    }
+
+    fun updateList(list: ArrayList<MachineInfo>) {
+        itemList = list
+        notifyDataSetChanged()
     }
 
 }

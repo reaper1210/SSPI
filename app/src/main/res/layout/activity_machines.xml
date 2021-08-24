@@ -47,7 +47,6 @@
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/search_edt_bg"
             android:drawableEnd="@drawable/search_drawable"
-            android:hint="Categories"
             android:paddingStart="8dp"
             android:paddingTop="2dp"
             android:paddingEnd="2dp"
@@ -61,8 +60,17 @@
         android:id="@+id/machinesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
         android:layout_below="@id/headMachinesAct"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/txtNoMachines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="No Machines to show"
+        android:textSize="32sp"
+        android:textStyle="italic"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

@@ -9,12 +9,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.petblowmachine.sspi.activities.MachinesActivity
 import com.petblowmachine.sspi.R
 import com.petblowmachine.sspi.modal.Applic
 import com.petblowmachine.sspi.modal.Category
+import com.petblowmachine.sspi.modal.MachineInfo
 
-class CategoryAdapter(private val arrayList:ArrayList<Category>, private val context: Context):
+class CategoryAdapter(private var arrayList:ArrayList<Category>, private val context: Context):
     RecyclerView.Adapter<CategoryAdapter.ItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
@@ -28,6 +30,7 @@ class CategoryAdapter(private val arrayList:ArrayList<Category>, private val con
             val intent = Intent(context, MachinesActivity::class.java)
             context.startActivity(intent)
         }
+        Glide.with(context).load(category.categoryImg).centerCrop().error(R.drawable.no_img).into(holder.categoryImg)
         holder.categoryName.text = category.categoryName
 
         holder.itemView.setOnClickListener {
@@ -39,6 +42,11 @@ class CategoryAdapter(private val arrayList:ArrayList<Category>, private val con
 
     override fun getItemCount(): Int {
         return arrayList.size
+    }
+
+    fun updateList(list: ArrayList<Category>) {
+        arrayList = list
+        notifyDataSetChanged()
     }
 
     class ItemHolder(itemView:View):RecyclerView.ViewHolder(itemView){

@@ -27,8 +27,13 @@ import java.security.Permission
 import java.util.jar.Manifest
 
 class Profile : Fragment(),ExpandCollapseListener,EasyPermissions.PermissionCallbacks {
-    private lateinit var btnContactUs:ImageView
-    private lateinit var btnGetDirections:ImageView
+    private lateinit var btnContactUs: ImageView
+    private lateinit var cardView1:ExpandCollapseCard
+    private lateinit var cardView2:ExpandCollapseCard
+    private lateinit var cardView3:ExpandCollapseCard
+    private lateinit var cardView4:ExpandCollapseCard
+    private lateinit var btnGetDirections: ImageView
+    private lateinit var imgTrustSeal: ImageView
     private val requestCode = 1
 
     override fun onCreateView(
@@ -37,23 +42,28 @@ class Profile : Fragment(),ExpandCollapseListener,EasyPermissions.PermissionCall
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-        val cardView1 = view.findViewById<ExpandCollapseCard>(R.id.cardView1)
-        val cardView2 = view.findViewById<ExpandCollapseCard>(R.id.cardView2)
-        val cardView3 = view.findViewById<ExpandCollapseCard>(R.id.cardView3)
-        val cardView4 = view.findViewById<ExpandCollapseCard>(R.id.cardView4)
+        cardView1 = view.findViewById(R.id.cardView1)
+        cardView2 = view.findViewById(R.id.cardView2)
+        cardView3 = view.findViewById(R.id.cardView3)
+        cardView4 = view.findViewById(R.id.cardView4)
         btnContactUs = view.findViewById(R.id.btnContactUs)
         btnGetDirections = view.findViewById(R.id.btnGetDirections)
+        imgTrustSeal = view.findViewById(R.id.imgTrustSeal)
 
         cardView1.initListener(this)
         cardView2.initListener(this)
         cardView3.initListener(this)
         cardView4.initListener(this)
 
+        imgTrustSeal.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://trustseal.indiamart.com/members/petblowmachine"))
+            startActivity(intent)
+        }
 
         btnContactUs.setOnClickListener {
             if(hasPerms()){
-                val callIntent = Intent(Intent.ACTION_CALL)
-                callIntent.data = Uri.parse("tel:" + 9373482927) //change the number
+                val callIntent = Intent(Intent.ACTION_DIAL)
+                callIntent.data = Uri.parse("tel:" + 7738385381)
                 startActivity(callIntent)
             }
             else{

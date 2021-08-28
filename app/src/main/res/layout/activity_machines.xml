@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:text="No Machines to show"
-        android:textSize="32sp"
+        android:textSize="28sp"
         android:textStyle="italic"
         android:layout_centerInParent="true" />
 

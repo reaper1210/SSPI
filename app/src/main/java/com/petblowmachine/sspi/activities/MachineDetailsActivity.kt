@@ -1,6 +1,7 @@
 package com.petblowmachine.sspi.activities
 
 import android.content.Context
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -40,6 +41,7 @@ class MachineDetailsActivity : AppCompatActivity() {
     private lateinit var edTxtOne: EditText
     private lateinit var edTxtTwo: EditText
     private lateinit var btnRequestPrice: Button
+    private lateinit var downArrowBottomSheet: ImageView
     private lateinit var db:FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +58,7 @@ class MachineDetailsActivity : AppCompatActivity() {
         btnRequestPrice = findViewById(R.id.btnRequestPrice)
         edTxtOne = findViewById(R.id.edTxtOneMachineDetails)
         edTxtTwo = findViewById(R.id.edTxtTwoMachineDetails)
+        downArrowBottomSheet = findViewById(R.id.bottomSheetDownArrow)
 
         BottomSheetBehavior.from(bottomSheetLayout).apply{
 
@@ -74,6 +77,10 @@ class MachineDetailsActivity : AppCompatActivity() {
                 override fun onSlide(bottomSheet: View, slideOffset: Float) {}
             })
 
+        }
+
+        downArrowBottomSheet.setOnClickListener {
+            BottomSheetBehavior.from(bottomSheetLayout).state = BottomSheetBehavior.STATE_COLLAPSED
         }
 
         txtMachineName.text = Applic.machineName
@@ -157,6 +164,15 @@ class MachineDetailsActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun onBackPressed() {
+        if(BottomSheetBehavior.from(bottomSheetLayout).state == BottomSheetBehavior.STATE_EXPANDED){
+            BottomSheetBehavior.from(bottomSheetLayout).state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+        else{
+            super.onBackPressed()
+        }
     }
 
     private fun disableRequestButton() {

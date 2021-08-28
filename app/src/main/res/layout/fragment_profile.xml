@@ -41,7 +41,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imgSSPILogo"
                     android:layout_centerHorizontal="true"
-                    android:layout_margin="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
                     android:text="We, Swami Samarth Pet Industries from 2006 are manufacturing a high-quality range of Water Plant and Packaging Machines. Offered products range consists of Rinsing Filling Capping Machine, Plastic Pet Bottle Making Machine, and Packaged Drinking Water Plant. In their development process, we assure that only top-notch basic material and latest technology is used by our professionals along with ultra-modern machinery. The provided products are appreciated for their sturdy construction, easy to use and less maintenance."
                     android:textAlignment="center"
                     android:textColor="@color/primary_dark"
@@ -69,7 +72,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_margin="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
                         android:padding="10dp"
                         android:text="Company Factsheet"
                         android:textSize="22sp"
@@ -134,10 +140,42 @@
             </com.google.android.material.card.MaterialCardView>
 
             <ImageView
+                android:id="@+id/imgTrustSeal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cardViewFactSheet"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/trust_seal_img" />
+
+            <TextView
+                android:id="@+id/txtAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgTrustSeal"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Address"
+                android:textColor="@color/primary_dark"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtAddress"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Shiv Shambhu Industrial Estate, Building No. 5, NH-8, Vasai East, Thane - 401208, Maharashtra, India"
+                android:textAlignment="center"
+                android:textColor="@color/primary_color"
+                android:textSize="14sp" />
+
+            <ImageView
                 android:id="@+id/btnContactUs"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/cardViewFactSheet"
+                android:layout_below="@+id/address"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/btn_contact_us" />
 

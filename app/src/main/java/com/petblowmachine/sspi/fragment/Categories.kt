@@ -73,8 +73,8 @@ class Categories : Fragment() {
                         arrayList.add(Category(document.id,document["categoryImg"].toString()))
                     }
                     Applic.catArray = arrayList
-                    adapter = CategoryAdapter(arrayList,activity as Context)
-                    gridLayoutManager = GridLayoutManager(activity as Context,2)
+                    adapter = CategoryAdapter(arrayList,requireContext())
+                    gridLayoutManager = GridLayoutManager(requireContext(),2)
                     recyclerView.layoutManager = gridLayoutManager
                     recyclerView.adapter = adapter
 

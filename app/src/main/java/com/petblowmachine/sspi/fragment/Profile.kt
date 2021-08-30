@@ -2,6 +2,7 @@ package com.petblowmachine.sspi.fragment
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -15,6 +16,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -72,10 +74,16 @@ class Profile : Fragment(),ExpandCollapseListener,EasyPermissions.PermissionCall
         }
 
         btnGetDirections.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.co.in/maps/dir//swami samarth pet industries vasai"))
-            intent.`package` = "com.google.android.apps.maps"
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
+
+            try{
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.co.in/maps/dir//swami samarth pet industries vasai"))
+                intent.`package` = "com.google.android.apps.maps"
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            }catch(e:ActivityNotFoundException){
+                Toast.makeText(activity as Context,"Google maps isn't installed", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
         return view

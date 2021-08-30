@@ -69,27 +69,29 @@ class Categories : Fragment() {
             db.collection("categories")
                 .get()
                 .addOnSuccessListener {
-                    for(document in it){
-                        arrayList.add(Category(document.id,document["categoryImg"].toString()))
-                    }
-                    Applic.catArray = arrayList
-                    adapter = CategoryAdapter(arrayList,requireContext())
-                    gridLayoutManager = GridLayoutManager(requireContext(),2)
-                    recyclerView.layoutManager = gridLayoutManager
-                    recyclerView.adapter = adapter
-
-                    db.collection("categories").addSnapshotListener { value, error ->
-                        val list = ArrayList<Category>()
-                        for(doc in value!!){
-                            list.add(Category(doc.id,doc["categoryImg"].toString()))
+                    if(activity!=null){
+                        for(document in it){
+                            arrayList.add(Category(document.id,document["categoryImg"].toString()))
                         }
-                        adapter.updateList(list)
-                    }
-                    if(arrayList.isEmpty()){
-                        txtNoCategories.visibility = View.VISIBLE
-                    }
-                    else{
-                        txtNoCategories.visibility = View.GONE
+                        Applic.catArray = arrayList
+                        adapter = CategoryAdapter(arrayList,activity as Context)
+                        gridLayoutManager = GridLayoutManager(activity as Context,2)
+                        recyclerView.layoutManager = gridLayoutManager
+                        recyclerView.adapter = adapter
+
+                        db.collection("categories").addSnapshotListener { value, error ->
+                            val list = ArrayList<Category>()
+                            for(doc in value!!){
+                                list.add(Category(doc.id,doc["categoryImg"].toString()))
+                            }
+                            adapter.updateList(list)
+                        }
+                        if(arrayList.isEmpty()){
+                            txtNoCategories.visibility = View.VISIBLE
+                        }
+                        else{
+                            txtNoCategories.visibility = View.GONE
+                        }
                     }
                 }
                 .addOnFailureListener {

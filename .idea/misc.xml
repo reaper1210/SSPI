@@ -31,6 +31,7 @@
         <entry key="..\:/Users/soham/AndroidStudioProjects/SSPI/app/src/main/res/layout/activity_machine_details.xml" value="0.2" />
         <entry key="..\:/Users/soham/AndroidStudioProjects/SSPI/app/src/main/res/layout/activity_machines.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/soham/AndroidStudioProjects/SSPI/app/src/main/res/layout/activity_main.xml" value="0.16111111111111112" />
+        <entry key="..\:/Users/soham/AndroidStudioProjects/SSPI/app/src/main/res/layout/activity_splash_screen.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/soham/AndroidStudioProjects/SSPI/app/src/main/res/layout/category_single_row.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/soham/AndroidStudioProjects/SSPI/app/src/main/res/layout/fragment_categories.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/soham/AndroidStudioProjects/SSPI/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
@@ -39,7 +40,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

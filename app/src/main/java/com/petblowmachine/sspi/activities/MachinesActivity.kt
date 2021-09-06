@@ -41,7 +41,6 @@ class MachinesActivity : AppCompatActivity() {
         edtTxtSearchBar = findViewById(R.id.searchEdtTxtMachinesAct)
         txtNoMachines = findViewById(R.id.txtNoMachines)
         linearLayout = LinearLayoutManager(this)
-        edtTxtSearchBar.hint = Applic.categoryName+"s"
         txtNoMachines.visibility = View.GONE
 
         arrList = ArrayList()

@@ -36,9 +36,9 @@
                 android:id="@+id/singleRowMachineImageCardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp"
-                android:layout_marginStart="12dp"
                 app:cardCornerRadius="16dp">
 
                 <ImageView
@@ -46,16 +46,15 @@
                     android:layout_width="160dp"
                     android:layout_height="128dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img1"/>
+                    android:src="@drawable/img1" />
 
             </androidx.cardview.widget.CardView>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/singleRowMachineImageCardView"
                 android:layout_centerVertical="true"
-                >
+                android:layout_toEndOf="@+id/singleRowMachineImageCardView">
 
                 <RelativeLayout
                     android:id="@+id/detailOneLayout"
@@ -99,9 +98,9 @@
                         android:id="@+id/txtSingleRowMachineDetailTwo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/imgSingleRowMachineDetailTwo"
                         android:text="Detail1"
-                        android:textColor="@color/primary_dark"
-                        android:layout_toEndOf="@+id/imgSingleRowMachineDetailTwo" />
+                        android:textColor="@color/primary_dark" />
 
                 </RelativeLayout>
 
@@ -131,7 +130,6 @@
                 </RelativeLayout>
 
             </RelativeLayout>
-
 
 
         </RelativeLayout>

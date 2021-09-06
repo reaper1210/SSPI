@@ -50,6 +50,7 @@
             android:paddingStart="8dp"
             android:paddingTop="2dp"
             android:paddingEnd="2dp"
+            android:hint="Machines"
             android:paddingBottom="2dp"
             android:textColorHint="@color/primary_color"
             android:textCursorDrawable="@drawable/cursor_edt_txt" />

@@ -1,39 +1,30 @@
 package com.petblowmachine.sspi.fragment
 
-import android.app.Activity
-import android.app.AlertDialog
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
-import android.content.pm.ActivityInfo
-import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import android.widget.*
+import androidx.core.view.isVisible
 import com.petblowmachine.sspi.R
-import com.skyhope.expandcollapsecardview.ExpandCollapseCard
-import com.skyhope.expandcollapsecardview.ExpandCollapseListener
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
-import java.security.Permission
-import java.util.jar.Manifest
 
-class Profile : Fragment(),ExpandCollapseListener,EasyPermissions.PermissionCallbacks {
+class Profile : Fragment(),EasyPermissions.PermissionCallbacks {
     private lateinit var btnContactUs: ImageView
-    private lateinit var cardView1:ExpandCollapseCard
-    private lateinit var cardView2:ExpandCollapseCard
-    private lateinit var cardView3:ExpandCollapseCard
-    private lateinit var cardView4:ExpandCollapseCard
+    private lateinit var btnFactSheetCardView1: ImageView
+    private lateinit var lytFactSheetCardView1: RelativeLayout
+    private lateinit var btnFactSheetCardView2: ImageView
+    private lateinit var lytFactSheetCardView2: RelativeLayout
+    private lateinit var btnFactSheetCardView3: ImageView
+    private lateinit var lytFactSheetCardView3: RelativeLayout
+    private lateinit var btnFactSheetCardView4: ImageView
+    private lateinit var lytFactSheetCardView4: RelativeLayout
     private lateinit var btnGetDirections: ImageView
     private lateinit var imgTrustSeal: ImageView
     private val requestCode = 1
@@ -44,18 +35,64 @@ class Profile : Fragment(),ExpandCollapseListener,EasyPermissions.PermissionCall
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-        cardView1 = view.findViewById(R.id.cardView1)
-        cardView2 = view.findViewById(R.id.cardView2)
-        cardView3 = view.findViewById(R.id.cardView3)
-        cardView4 = view.findViewById(R.id.cardView4)
+
+        btnFactSheetCardView1 = view.findViewById(R.id.btnFactSheetCardView1)
+        lytFactSheetCardView1 = view.findViewById(R.id.lytFactSheetCardView1)
+        lytFactSheetCardView1.visibility = View.GONE
+        btnFactSheetCardView2 = view.findViewById(R.id.btnFactSheetCardView2)
+        lytFactSheetCardView2 = view.findViewById(R.id.lytFactSheetCardView2)
+        lytFactSheetCardView2.visibility = View.GONE
+        btnFactSheetCardView3 = view.findViewById(R.id.btnFactSheetCardView3)
+        lytFactSheetCardView3 = view.findViewById(R.id.lytFactSheetCardView3)
+        lytFactSheetCardView3.visibility = View.GONE
+        btnFactSheetCardView4 = view.findViewById(R.id.btnFactSheetCardView4)
+        lytFactSheetCardView4 = view.findViewById(R.id.lytFactSheetCardView4)
+        lytFactSheetCardView4.visibility = View.GONE
+
         btnContactUs = view.findViewById(R.id.btnContactUs)
         btnGetDirections = view.findViewById(R.id.btnGetDirections)
         imgTrustSeal = view.findViewById(R.id.imgTrustSeal)
 
-        cardView1.initListener(this)
-        cardView2.initListener(this)
-        cardView3.initListener(this)
-        cardView4.initListener(this)
+        btnFactSheetCardView1.setOnClickListener {
+            if(lytFactSheetCardView1.isVisible){
+                lytFactSheetCardView1.visibility = View.GONE
+                btnFactSheetCardView1.setImageResource(R.drawable.ic_arrow_right)
+            }
+            else{
+                lytFactSheetCardView1.visibility = View.VISIBLE
+                btnFactSheetCardView1.setImageResource(R.drawable.ic_arrow_down)
+            }
+        }
+        btnFactSheetCardView2.setOnClickListener {
+            if(lytFactSheetCardView2.isVisible){
+                lytFactSheetCardView2.visibility = View.GONE
+                btnFactSheetCardView2.setImageResource(R.drawable.ic_arrow_right)
+            }
+            else{
+                lytFactSheetCardView2.visibility = View.VISIBLE
+                btnFactSheetCardView2.setImageResource(R.drawable.ic_arrow_down)
+            }
+        }
+        btnFactSheetCardView3.setOnClickListener {
+            if(lytFactSheetCardView3.isVisible){
+                lytFactSheetCardView3.visibility = View.GONE
+                btnFactSheetCardView3.setImageResource(R.drawable.ic_arrow_right)
+            }
+            else{
+                lytFactSheetCardView3.visibility = View.VISIBLE
+                btnFactSheetCardView3.setImageResource(R.drawable.ic_arrow_down)
+            }
+        }
+        btnFactSheetCardView4.setOnClickListener {
+            if(lytFactSheetCardView4.isVisible){
+                lytFactSheetCardView4.visibility = View.GONE
+                btnFactSheetCardView4.setImageResource(R.drawable.ic_arrow_right)
+            }
+            else{
+                lytFactSheetCardView4.visibility = View.VISIBLE
+                btnFactSheetCardView4.setImageResource(R.drawable.ic_arrow_down)
+            }
+        }
 
         imgTrustSeal.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://trustseal.indiamart.com/members/petblowmachine"))
@@ -87,9 +124,6 @@ class Profile : Fragment(),ExpandCollapseListener,EasyPermissions.PermissionCall
         }
 
         return view
-    }
-    override fun onExpandCollapseListener(p0: Boolean) {
-
     }
 
     private fun hasPerms() =

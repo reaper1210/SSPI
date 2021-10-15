@@ -37,6 +37,12 @@
         <entry key="..\:/Users/soham/AndroidStudioProjects/SSPI/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Users/soham/AndroidStudioProjects/SSPI/app/src/main/res/layout/machine_details_single_row.xml" value="0.4199134199134199" />
         <entry key="..\:/Users/soham/AndroidStudioProjects/SSPI/app/src/main/res/layout/machines_single_row.xml" value="0.23186528497409326" />
+        <entry key="app/src/main/res/drawable/ic_down_arrow.xml" value="0.3472222222222222" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/profile_cardview1_layout.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/profile_cardview2_layout.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/profile_cardview3_layout.xml" value="0.3723958333333333" />
+        <entry key="app/src/main/res/layout/profile_cardview4_layout.xml" value="0.3723958333333333" />
       </map>
     </option>
   </component>

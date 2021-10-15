@@ -2,6 +2,7 @@
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -52,7 +53,6 @@
 
             </RelativeLayout>
 
-
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardViewFactSheet"
                 android:layout_width="match_parent"
@@ -81,59 +81,674 @@
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
-                    <com.skyhope.expandcollapsecardview.ExpandCollapseCard
-                        android:id="@+id/cardView1"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/factSheetCardView1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/profileFactSheetTitle"
+                        android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:background="@color/primary_dark"
-                        app:item_inner_view="@layout/profile_cardview1_layout"
-                        app:title="Basic Information"
-                        app:title_color="@color/primary_dark"
-                        app:title_size="18sp" />
+                        android:layout_below="@id/profileFactSheetTitle"
+                        android:background="@color/primary_dark">
 
-                    <com.skyhope.expandcollapsecardview.ExpandCollapseCard
-                        android:id="@+id/cardView2"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="9"
+                                    android:layout_margin="10dp"
+                                    android:text="Basic Information"
+                                    android:textColor="@color/primary_dark"
+                                    android:textSize="18sp"/>
+
+                                <ImageView
+                                    android:id="@+id/btnFactSheetCardView1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/ic_arrow_right"/>
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/lytFactSheetCardView1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    app:cardElevation="10dp">
+
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp">
+
+                                        <TextView
+                                            android:id="@+id/title1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Nature Of Bussiness: "
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title1"
+                                            android:text="Exporter and Manufacturer" />
+
+                                        <View
+                                            android:id="@+id/divider1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc1"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider1"
+                                            android:text="Company CEO: "
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider1"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title2"
+                                            android:text="Vinayak Sawant" />
+
+                                        <View
+                                            android:id="@+id/divider2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc2"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider2"
+                                            android:text="Registered Address: "
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider2"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title3"
+                                            android:text="Shiv Shambhu Industrial Estate, Building No. 5, NH-8, Vasai East, Thane- 401 208, Maharashtra, India" />
+
+                                        <View
+                                            android:id="@+id/divider3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc3"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider3"
+                                            android:text="Total Number of Employees: "
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider3"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title4"
+                                            android:text="51 to 100 People" />
+
+                                        <View
+                                            android:id="@+id/divider4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc4"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider4"
+                                            android:text="Year of Establishment: "
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider4"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title5"
+                                            android:text="2006" />
+
+                                        <View
+                                            android:id="@+id/divider5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc5"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title6"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider5"
+                                            android:text="Legal Status of Firm: "
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc6"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider5"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title6"
+                                            android:text="Individual - Proprietor" />
+
+                                        <View
+                                            android:id="@+id/divider6"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc6"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title7"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider6"
+                                            android:text="Annual Turnover: "
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc7"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider6"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title7"
+                                            android:text="Rs. 10 - 25 Crore" />
+
+                                        <View
+                                            android:id="@+id/divider7"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc7"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title8"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider7"
+                                            android:text="Top Export Countries: "
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc8"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider7"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title8"
+                                            android:text=" -Uganda\n -Yemen\n -Ethiopia\n -Saudi Arabia\n -Liberia" />
+
+                                        <View
+                                            android:id="@+id/divider8"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc8"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                    </RelativeLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/factSheetCardView2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@id/cardView1"
+                        android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:clickable="true"
-                        app:item_inner_view="@layout/profile_cardview2_layout"
-                        app:title="Infrastructure"
-                        app:title_size="18sp"
-                        app:title_color="@color/primary_dark"/>
+                        android:layout_below="@id/factSheetCardView1"
+                        android:background="@color/primary_dark">
 
-                    <com.skyhope.expandcollapsecardview.ExpandCollapseCard
-                        android:id="@+id/cardView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@id/cardView2"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:clickable="true"
-                        app:item_inner_view="@layout/profile_cardview3_layout"
-                        app:title="Company USP"
-                        app:title_color="@color/primary_dark"
-                        app:title_size="18sp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-                    <com.skyhope.expandcollapsecardview.ExpandCollapseCard
-                        android:id="@+id/cardView4"
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="9"
+                                    android:layout_margin="10dp"
+                                    android:text="Infrastructure"
+                                    android:textColor="@color/primary_dark"
+                                    android:textSize="18sp"/>
+
+                                <ImageView
+                                    android:id="@+id/btnFactSheetCardView2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/ic_arrow_right"/>
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/lytFactSheetCardView2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    app:cardElevation="10dp">
+
+                                    <RelativeLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp">
+
+                                        <TextView
+                                            android:id="@+id/title11"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Lacation Type: "
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title11"
+                                            android:text="Semi-Urban" />
+
+                                        <View
+                                            android:id="@+id/divider11"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/title11"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title21"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Building Infrastructure: "
+                                            android:textStyle="bold"
+                                            android:layout_below="@+id/divider11"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title21"
+                                            android:layout_below="@+id/divider11"
+                                            android:text="Permanent" />
+
+                                        <View
+                                            android:id="@+id/divider21"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/title21"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title31"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Size of Premises: "
+                                            android:textStyle="bold"
+                                            android:layout_below="@+id/divider21"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title31"
+                                            android:layout_below="@+id/divider21"
+                                            android:text="1500 square feet" />
+
+                                        <View
+                                            android:id="@+id/divider31"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/title31"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title41"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Space Around: "
+                                            android:textStyle="bold"
+                                            android:layout_below="@+id/divider31"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/divider31"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title41"
+                                            android:text="Front porch" />
+
+                                        <View
+                                            android:id="@+id/divider41"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/title41"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                    </RelativeLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/factSheetCardView3"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@id/cardView3"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:clickable="true"
-                        app:item_inner_view="@layout/profile_cardview4_layout"
-                        app:title="Statutory Profile"
-                        app:title_color="@color/primary_dark"
-                        app:title_size="18sp" />
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_below="@id/factSheetCardView2"
+                        android:background="@color/primary_dark">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="9"
+                                    android:layout_margin="10dp"
+                                    android:text="Company USP"
+                                    android:textColor="@color/primary_dark"
+                                    android:textSize="18sp"/>
+
+                                <ImageView
+                                    android:id="@+id/btnFactSheetCardView3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/ic_arrow_right"/>
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/lytFactSheetCardView3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    app:cardElevation="4dp">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Quality Measures/Testing Facilities:"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="1dp"
+                                            android:inputType="textMultiLine"
+                                            android:layout_centerHorizontal="true"
+                                            android:text="\nYes" />
+
+                                    </RelativeLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/factSheetCardView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_below="@id/factSheetCardView3"
+                        android:background="@color/primary_dark">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="9"
+                                    android:layout_margin="10dp"
+                                    android:text="Statutory Profile"
+                                    android:textColor="@color/primary_dark"
+                                    android:textSize="18sp"/>
+
+                                <ImageView
+                                    android:id="@+id/btnFactSheetCardView4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/ic_arrow_right"/>
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/lytFactSheetCardView4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    app:cardElevation="4dp">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp">
+
+                                        <TextView
+                                            android:id="@+id/title13"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Import Export Code\n(IEC): "
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc13"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_toEndOf="@+id/title13"
+                                            android:text="03110*****" />
+
+                                        <View
+                                            android:id="@+id/divider13"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/title13"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title23"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Tan No: "
+                                            android:layout_below="@+id/divider13"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc23"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_below="@+id/divider13"
+                                            android:layout_toEndOf="@+id/title23"
+                                            android:text="PNEV0*****" />
+
+                                        <View
+                                            android:id="@+id/divider23"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc23"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title33"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Banker: "
+                                            android:layout_below="@+id/divider23"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc33"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_below="@+id/divider23"
+                                            android:layout_toEndOf="@+id/title33"
+                                            android:text="Bassein Catholic co-operative bank LTD. " />
+
+                                        <View
+                                            android:id="@+id/divider33"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc33"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                        <TextView
+                                            android:id="@+id/title43"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="GST No: "
+                                            android:layout_below="@+id/divider33"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/desc43"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="4dp"
+                                            android:layout_below="@+id/divider33"
+                                            android:layout_toEndOf="@+id/title43"
+                                            android:text="27AZFPS9894N1Z2" />
+
+                                        <View
+                                            android:id="@+id/divider43"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="1dp"
+                                            android:layout_below="@+id/desc43"
+                                            android:layout_marginTop="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:background="@color/primary_dark" />
+
+                                    </RelativeLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
 
                 </RelativeLayout>
 

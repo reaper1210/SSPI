@@ -22,7 +22,7 @@ class FcmNotificationSender(
     fun sendNotifications() {
 
         val db = FirebaseFirestore.getInstance()
-        db.collection("admin").document("admin").get().addOnCompleteListener {
+        db.collection("admin").document("fcm_server_key").get().addOnCompleteListener {
 
             if(it.isSuccessful){
                 val key = it.result?.data?.get("fcm_server_key").toString()
